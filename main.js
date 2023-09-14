@@ -134,7 +134,6 @@ function createCard () {
         
 
     returnBtn.addEventListener('click', () => {
-        
         location.reload();
     })
 }
@@ -222,10 +221,10 @@ function Game () {
             }
             if (numbersArray.length === document.querySelectorAll('.success').length) {
                 setTimeout(function() {
-                    clearTimeout(timer);
                     document.body.querySelector('#rocket').innerHTML ='';
                     alert("Отлично!Вы справились!!!");
                 },400);
+                clearTimeout(timer);
             }
         }
     }
