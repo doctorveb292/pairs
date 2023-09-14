@@ -1,0 +1,111 @@
+.body {
+    min-width: 380px;
+    font-family: "Muller" ,sans-serif;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Muller';
+    src: local('Muller-Regular'), url("./fonts/MullerRegular.woff2") format("woff2"),
+    url("./fonts/MullerRegular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Muller';
+    src: local('Muller-Bold'), url("./fonts/MullerBold.woff2") format("woff2"),
+    url("./fonts/MullerBold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  .container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 30px 0;
+  }
+
+  .form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    min-width: 430px;
+  }
+
+  .form input {
+    width: 350px;
+  }
+
+  .card-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    gap: 25px;
+    max-width: 900px;
+  }
+
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 140px;
+    background-color: purple;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 0px;
+    background-image: url(./img.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .card:hover {
+    box-shadow: 0 0 15px red;
+  }
+
+  .open {
+    background-image: none;
+    transform: scale(0.9);
+    font-size: 60px;
+    cursor: default;
+  }
+
+  .open:hover {
+    box-shadow: none;
+  }
+
+  .open:active {
+    box-shadow: none;
+  }
+
+  .success {
+    background-image: none;
+    background-color: #26a108;
+    transform: scale(0.9);
+    font-size: 60px;
+    cursor: default;
+  }
+
+  .success:hover {
+    box-shadow: none;
+  }
+
+  .success:active {
+    box-shadow: none;
+  }
+
+  .game-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+  }
