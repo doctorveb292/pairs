@@ -134,7 +134,7 @@ function createCard () {
         
 
     returnBtn.addEventListener('click', () => {
-        clearTimeout(timer);
+        
         location.reload();
     })
 }
