@@ -223,6 +223,7 @@ function Game () {
             if (numbersArray.length === document.querySelectorAll('.success').length) {
                 setTimeout(function() {
                     clearTimeout(timer);
+                    document.body.querySelector('#rocket').innerHTML ='';
                     alert("Отлично!Вы справились!!!");
                 },400);
             }
