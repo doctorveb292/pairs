@@ -134,15 +134,7 @@ function createCard () {
         
 
     returnBtn.addEventListener('click', () => {
-        inputCreateFunction.button.disabled = false;
-        inputCreateFunction.input.disabled = false;
-        document.body.querySelector('#gameContainer').remove();
-        const timerWindow = document.createElement('div');
-        const timerSelect = document.createElement('select');
-        const timerText = document.createElement('span');
-        timerWindow.append(timerSelect);
-        timerWindow.prepend(timerText);
-        timerText.textContent = 'Выберите время игры(в секундах)';
+        location.reload();
     })
 }
 
