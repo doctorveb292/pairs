@@ -221,7 +221,6 @@ function Game () {
             }
             if (numbersArray.length === document.querySelectorAll('.success').length) {
                 setTimeout(function() {
-                    document.body.querySelector('#wrap').innerHTML ='';
                     alert("Отлично!Вы справились!!!");
                 },400);
             }
