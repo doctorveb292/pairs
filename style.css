@@ -111,11 +111,11 @@
   }
   
   .timer-window {
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 15px;
     paddind: 15px;
-    margin: 30px,auto;
-    font-size: 100px;
+    margin: 40px, auto;
+    font-size: 30px;
   }
