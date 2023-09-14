@@ -220,7 +220,6 @@ function Game () {
                 }
             }
             if (numbersArray.length === document.querySelectorAll('.success').length) {
-                clearTimeout(timer);
                 setTimeout(function() {
                     document.body.querySelector('#rocket').innerHTML ='';
                     alert("Отлично!Вы справились!!!");
@@ -246,7 +245,9 @@ inputCreateFunction.form.addEventListener('submit', function(e) {
                 clearTimeout(timer);
                 document.body.querySelector('#wrap').innerHTML = '';
                 document.body.querySelector('#rocket').textContent = 'Время вышло! Вы проиграли =(';
-             } else {
+             } if(x > 0 && numbersArray.length === document.querySelectorAll('.success').length) {
+                clearTimeout(timer);
+                } else {
                 timer = setTimeout(Countdown,900);
              }
      }
