@@ -109,3 +109,11 @@
     flex-direction: column;
     gap: 30px;
   }
+  
+  .timer-window {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px, auto;
+    font-size: 20px;
