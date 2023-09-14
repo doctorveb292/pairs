@@ -1,8 +1,40 @@
-(()=>{
+
+// // Этап 1. Создайте функцию, генерирующую массив парных чисел. Пример массива, который должна возвратить функция: [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8].count - количество пар.
+// let numbersArray = [];
+// function createNumbersArray(count) {
+// const arrayLenght = count;
+
+// for (let i = 1; numbersArray.length < (arrayLenght * 2); ++i) {
+//     numbersArray.push(i,i)
+// }
+// return numbersArray;
+// };
+
+// createNumbersArray(10);
+
+// // // Этап 2. Создайте функцию перемешивания массива.Функция принимает в аргументе исходный массив и возвращает перемешанный массив. arr - массив чисел
+
+// function shuffle(arr) {
+//     for (const index in arr) {
+//         let secondIndex = Math.abs(Math.floor(Math.random() * (arr.length))); 
+//         let temp = arr[index];
+//         arr[index] = arr[secondIndex];
+//         arr[secondIndex] = temp;
+//     }
+//     return arr;
+// }
+
+// // Этап 3. Используйте две созданные функции для создания массива перемешанными номерами. На основе этого массива вы можете создать DOM-элементы карточек. У каждой карточки будет свой номер из массива произвольных чисел. Вы также можете создать для этого специальную функцию. count - количество пар.
+
+(() => {
+
 document.body.classList.add('body');
+
 let numbersArray = [];
 let firstCard = null;
 let secondCard = null;
+
+
 function inputCreate() {
     const container = document.createElement('div');
     const form = document.createElement('form');
@@ -12,7 +44,9 @@ function inputCreate() {
     const timerWindow = document.createElement('div');
     const timerSelect = document.createElement('select');
     const timerText = document.createElement('span');
+
     
+
     input.placeholder = 'Введите количество пар для игры(от 2 до 14)'
     button.textContent = 'Начать!'
     container.classList.add('container');
@@ -32,12 +66,15 @@ function inputCreate() {
     buttonWrapper.classList.add('buton-wrapper');
     button.classList.add('main-button');
     button.disabled = true;
+
     document.body.append(container);
     container.append(form);
     container.append(timerWindow);
     buttonWrapper.append(button);
     form.append(input);
     form.append(buttonWrapper);
+
+
     input.addEventListener('input',() => {
         if(input.value !== "") {
             button.disabled = false;
@@ -45,17 +82,21 @@ function inputCreate() {
             button.disabled = true;
         }
     });
+
     return {
         form,
         input,
         button,
     };
 };
+
 function startGame(count) {
     let arrayLenght = count;
+
     for (let i = 1; numbersArray.length < (arrayLenght * 2); ++i) {
             numbersArray.push(i,i)
     }
+
     for (const index in numbersArray) {
     let secondIndex = Math.abs(Math.floor(Math.random() * (numbersArray.length))); 
     let temp = numbersArray[index];
@@ -64,6 +105,8 @@ function startGame(count) {
     }
     return numbersArray;
 };
+
+
 function createCard () {
     const gameContainer = document.createElement('div');
     const cardWrapper = document.createElement('div');
@@ -87,14 +130,26 @@ function createCard () {
         card.textContent = numbersArray[i];
         card.dataset.number = numbersArray[i];
     };
+
         
+
     returnBtn.addEventListener('click', () => {
-        location.reload();
+        inputCreateFunction.button.disabled = false;
+        inputCreateFunction.input.disabled = false;
+        document.body.querySelector('#gameContainer').remove();
+        const timerWindow = document.createElement('div');
+        const timerSelect = document.createElement('select');
+        const timerText = document.createElement('span');
+        timerWindow.append(timerSelect);
+        timerWindow.prepend(timerText);
+        timerText.textContent = 'Выберите время игры(в секундах)';
     })
 }
+
 function inputCheck () {
     numbersArray = [];
     let cardList = document.querySelector('#wrap');
+
     if (!inputCreateFunction.input.value) {
           return;
     } else if(inputCreateFunction.input.value > 14 || inputCreateFunction.input.value < 2) {
@@ -119,12 +174,14 @@ function inputCheck () {
         } else {
         startGame(inputCreateFunction.input.value);
         createCard();
+
         inputCreateFunction.button.disabled = true;
         inputCreateFunction.input.disabled = true;
         inputCreateFunction.input.value = '';
         };
     };
 }
+
 function Game () {
     // обращаемся ко всем элементам card через quetrySelector,который делает список всех элементов
     // подходящих под условие поиска
@@ -178,7 +235,10 @@ function Game () {
         }
     }
 };
+
+
 let inputCreateFunction = inputCreate();
+
 inputCreateFunction.form.addEventListener('submit', function(e) {
     e.preventDefault();
     inputCheck();
