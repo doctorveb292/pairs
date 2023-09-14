@@ -247,6 +247,7 @@ inputCreateFunction.form.addEventListener('submit', function(e) {
                 document.body.querySelector('#rocket').textContent = 'Время вышло! Вы проиграли =(';
              } if(x > 0 && (numbersArray.length === document.querySelectorAll('.success').length)) {
                 clearTimeout(timer);
+                document.body.querySelector('#wrap').innerHTML = '';
                 } else {
                 timer = setTimeout(Countdown,900);
              }
