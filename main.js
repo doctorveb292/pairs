@@ -47,7 +47,7 @@ function inputCreate() {
 
     
 
-    input.placeholder = 'Введите количество пар для игры(от 2 до 14)'
+    input.placeholder = 'Введите количество пар для игры(от 2 до 16)'
     button.textContent = 'Начать!'
     container.classList.add('container');
     timerWindow.classList.add('timer-window');
@@ -145,8 +145,8 @@ function inputCheck () {
 
     if (!inputCreateFunction.input.value) {
           return;
-    } else if(inputCreateFunction.input.value > 14 || inputCreateFunction.input.value < 2) {
-        alert ("Введите число пар карт от 2 до 14!");
+    } else if(inputCreateFunction.input.value > 16 || inputCreateFunction.input.value < 2) {
+        alert ("Введите число пар карт от 2 до 16")
         startGame(4);
         createCard();
         inputCreateFunction.input.value = '';
@@ -156,7 +156,7 @@ function inputCheck () {
             document.body.querySelector('#returnBtn').remove();
             document.body.querySelector('#gameContainer').remove();
         }
-        if (inputCreateFunction.input.value > 14 && inputCreateFunction.input.value < 2) {
+        if (inputCreateFunction.input.value > 16 && inputCreateFunction.input.value < 2) {
             createCard();
         };
     } else {
@@ -222,6 +222,7 @@ function Game () {
             }
             if (numbersArray.length === document.querySelectorAll('.success').length) {
                 setTimeout(function() {
+                    clearTimeout(timer);
                     alert("Отлично!Вы справились!!!");
                 },400);
             }
@@ -243,6 +244,7 @@ inputCreateFunction.form.addEventListener('submit', function(e) {
             --x;
             if( x < 0) {
                 clearTimeout(timer);
+                document.body.querySelector('#wrap').innerHTML = '';
                 document.body.querySelector('#rocket').textContent = 'Время вышло! Вы проиграли =(';
              } else {
                 timer = setTimeout(Countdown,900);
