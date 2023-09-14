@@ -220,11 +220,11 @@ function Game () {
                 }
             }
             if (numbersArray.length === document.querySelectorAll('.success').length) {
+                clearTimeout(timer);
                 setTimeout(function() {
                     document.body.querySelector('#rocket').innerHTML ='';
                     alert("Отлично!Вы справились!!!");
                 },400);
-                clearTimeout(timer);
             }
         }
     }
