@@ -1,3 +1,4 @@
+(()=>{
 document.body.classList.add('body');
 let numbersArray = [];
 let firstCard = null;
