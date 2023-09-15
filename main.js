@@ -17,7 +17,7 @@ function inputCreate() {
     const timerSelect = document.createElement('select');
     const timerText = document.createElement('span');
 
-    
+
 
     input.placeholder = 'Введите количество пар для игры(от 2 до 16)'
     button.textContent = 'Начать!'
@@ -70,7 +70,7 @@ function startGame(count) {
     }
 
     for (const index in numbersArray) {
-    let secondIndex = Math.abs(Math.floor(Math.random() * (numbersArray.length))); 
+    let secondIndex = Math.abs(Math.floor(Math.random() * (numbersArray.length)));
     let temp = numbersArray[index];
     numbersArray[index] = numbersArray[secondIndex];
     numbersArray[secondIndex] = temp;
@@ -92,7 +92,7 @@ function createCard () {
     gameContainer.append(returnBtn);
     returnBtn.id = 'returnBtn';
     returnBtn.textContent = 'Начать заново!';
-   
+
     cardWrapper.classList.add('card-wrapper');
     for (let i = 0;i < numbersArray.length;++i) {
         const card = document.createElement('div');
@@ -103,7 +103,7 @@ function createCard () {
         card.dataset.number = numbersArray[i];
     };
 
-        
+
 
     returnBtn.addEventListener('click', () => {
         location.reload();
@@ -118,10 +118,7 @@ function inputCheck () {
           return;
     } else if(inputCreateFunction.input.value > 16 || inputCreateFunction.input.value < 2) {
         alert ("Введите число пар карт от 2 до 16")
-        startGame(4);
-        createCard();
-        inputCreateFunction.input.value = '';
-        
+        location.reload();
         if (cardList !==null) {
             cardList.remove();
             document.body.querySelector('#returnBtn').remove();
@@ -147,35 +144,35 @@ function inputCheck () {
 }
 
 function Game () {
-    
+
     let cardInDom = document.body.querySelectorAll('#card');
-    
+
     for (const card of cardInDom) {
         card.onclick = () => {
-            
+
             if (card.classList.contains('open') || card.classList.contains('success')) {
                 return
               };
-        
+
             if (firstCard !== null && secondCard !== null) {
                 firstCard.classList.remove('open');
                 secondCard.classList.remove('open');
                 firstCard = null;
                 secondCard = null;
             }
-            
+
             card.classList.add('open');
-            
+
             if (firstCard === null) {
                 firstCard = card;
             } else {
                 secondCard = card;
             }
-            
+
             if (firstCard !== null && secondCard !== null) {
                 let firstCardNumber = firstCard.dataset.number;
                 let secondCardNumber = secondCard.dataset.number;
-                             
+
                 if(firstCardNumber === secondCardNumber) {
                     firstCard.classList.add('success');
                     secondCard.classList.add('success');
@@ -216,4 +213,4 @@ inputCreateFunction.form.addEventListener('submit', function(e) {
     Countdown();
 });
 })();
-            
+
